@@ -16,7 +16,7 @@ public:
     // Method empty: definition up to the subclasses
     virtual ~Object() {} //destructor
 
-    // Calculates the hash of this object, based on the helper <hash_me_>
+    // Calculates the hash of this object
     virtual size_t hash() {
     }
 
