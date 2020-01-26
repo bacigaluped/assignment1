@@ -1,27 +1,27 @@
-#include "stdlib.h"
+//lang::CwC
 #pragma once
 
-/* Descriptions and Object API adapted from helper file provided on piazza */
+#include <cstdlib>
+
+/**
+ * Object: a template for any object implemented in the future.
+ *         All classes should be some level of subclasses of <Object>.
+ * 
+ * author: dermer.s@husky.neu.edu / dermer.s@northeastern.edu
+ **/
 class Object {
-
 public:
-  /** Default constructor ensure that hash is initialized */
-  Object() {}
+    Object() {}
 
-  /** Default constructor is virtual to support subclasses */
-  ~Object() {}
+    // Method empty: definition up to the subclasses
+    virtual ~Object() {} //destructor
 
-  /** Returns the object's hash value. Two objects that are equal should
-   * have the same hash; object's that are not, may have the same hash.
-   * Subclasses should implement hash_me_(). */
-  size_t hash();
+    // Calculates the hash of this object, based on the helper <hash_me_>
+    virtual size_t hash() {
+    }
 
-  /** Use the address of the other object to determine equality. */
-  virtual bool equals(Object* other);
-
-  /** Return a newly allocated string describin the object */
-  virtual char* to_string();
-
-  /** Print to stdout. */
-  virtual void print();
+    // default equality calculation of an object, should be overrided
+    // by any subclasses that care (or overload hash_me_)
+    virtual bool equals(Object *other) {
+    }
 };
