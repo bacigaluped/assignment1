@@ -1,81 +1,48 @@
-#pragma once
 //lang::CwC
+#pragma once
+
 #include "object.h"
-#include <cassert>
-#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <cstdio> 
+
 /**
- * An immutable string class. Values passed in are copied and deleted
- * upon destruction.
- * author: vitekj@me.com
- */
+ * String: a wrapper for char* and constant char* in order to
+ *         allow for easy creating and computation of strings
+ * 
+ * immutable
+ * 
+ * author: dermer.s@husky.neu.edu / dermer.s@northeastern.edu
+ **/
 class String : public Object {
- public:
-  char* val_; // data
-  size_t size_; // number of characters (excluding \0)
-  int count = 1;
+public:
+    char* val; // owned
 
-  /** Construct a string copying s */
-  String(char* s) {
-    size_ = strlen(s);
-    val_ = duplicate(s);
-  }
+    String(char* c) {
+    }
 
-  /** Construct a string copying s */
-  String(const char* s) {
-    size_ = strlen(s);
-    val_ = duplicate(s);
-  }
+    String(const char* c) {
+    }
 
-  /** This constructor takes ownership of the char* s. The char*
-   *  will be delete with the string. Use with caution. The first
-   *  argument is there to differentiate this constructor from the
-   *  standard one. */
-  String(bool steal, char* s){
-    assert(steal);
-    size_ = strlen(s);
-    val_ = s;
-  }
+    ~String() { //destructor
+    }
 
-  /** Delete the string and free its data */
-  ~String () { delete[] val_; }
+    // hash function based on the equivalence specified by <equals>
+    size_t hash() {
+    }
 
-  /** Compare strings for equality. */
-  bool equals(Object* other) {
-    if (other == nullptr) return false;
-    String* tgt = dynamic_cast<String*>(other);
-    if (tgt == nullptr) return false;
-    return compare(tgt)== 0;
-  }
+    // compares strings based on direct character equivalence
+    bool equals(Object *other) {
+    }
 
-  /** Returns 0 if strings are equal, >0 if this string is larger,
-   *  <0 otherwise */
-  int compare(String* tgt) { return strcmp(val_, tgt->val_); }
+    // compares the strings based on alphabetical order
+    virtual int cmp(String *that) {
+    }
 
-  /** Textbook hash function on strings.   */
-  size_t hash_me_() {
-    size_t hash = 0;
-    for (size_t i = 0; i < size_; ++i)
-      hash = val_[i] + (hash << 6) + (hash << 16) - hash;
-    return hash;
-  }
+    // returns a string made up of the concatination of this string and s
+    String* concat(String *s) {
+    }
 
-  /** Number of non \0 characters in this string */
-  size_t size() { return size_; }
-
-  /** Concatenate the strings, return a new object */
-  String* concat(String* other) {
-    char* res = new char[size_ + other->size() + 1];
-    for (size_t i = 0; i < size_; i++)
-      res[i] = val_[i];
-    for (size_t i = size_, j = 0; i < size_ + other->size(); i++, j++)
-      res[i] = other->to_string()[j];
-    res[size_ + other->size()] = '\0';
-    return new String(true, res);
-  }
-
-  /** Return a newly allocated char* with this string value */
-  char* to_string() { return duplicate(val_); }
-
-  /** Print this string on stdout. */
-  void print() { p("String(\"").p(val_).p("\")");  }
+    // getter for the size of this string
+    size_t size() {}
 };
