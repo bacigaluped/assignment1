@@ -21,7 +21,8 @@ public:
     }
 
     // default equality calculation of an object, should be overrided
-    // by any subclasses that care (or overload hash_me_)
+    // by any subclasses that care
+    // Must be overriden if hash is
     virtual bool equals(Object *other) {
     }
 };
