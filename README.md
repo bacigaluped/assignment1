@@ -1,3 +1,13 @@
+Update 1/28 5:45pm:
+
+We had previously implemnted string.h and thus needed to remove the file and implmentation
+from this Repo as stated on piazza. Since the git history was rewritten, please reclone the repo
+but save any changes you've made locally in a separate directory before doing so. Apologies for
+the inconvenience.
+
+-Diego
+
+
 Data Structure: Map
 
 Decision:
