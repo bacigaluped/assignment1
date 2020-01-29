@@ -7,17 +7,17 @@ public:
   // Constructor
   Map();
 
+  // Constructor that copies existing Map
+  Map(Map* const m);
+
   // Destructor
   ~Map();
 
-  // Add a String to the map with a String key
-  void put(String* key, String* val);
-
   // Add an Object to the map with a String key
-  void put(String* key, Object* val);
+  void put(Object* key, Object* val);
 
   // Remove remove the value tied to the key from the map. Removes the key as well.
-  void remove(String* key);
+  Object* remove(String* key);
 
   // Gets the value associated with the key
   Object* get(String* key);
@@ -36,5 +36,3 @@ public:
 
   // Get the hash of the map object
   size_t hash();
-
-};
