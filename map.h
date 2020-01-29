@@ -14,25 +14,25 @@ public:
   ~Map();
 
   // Add an Object to the map with a String key
-  void put(Object* const key, Object* const val);
+  void put(Object* key, Object* val);
 
   // Remove remove the value tied to the key from the map. Removes the key as well.
-  Object* remove(String* const key);
+  Object* remove(String* key);
 
   // Gets the value associated with the key
-  Object* get(String* const key);
+  Object* get(String* key);
 
   // Clears all the keys and values from the map
   void clear();
 
   // Is the key in the map?
-  bool containsKey(String* const key);
+  bool containsKey(String* key);
 
   // Get the number of keys in the map
   size_t size();
 
   // Is this map eual to the Object?
-  bool equals(Object* const o);
+  bool equals(Object* o);
 
   // Get the hash of the map object
   size_t hash();
