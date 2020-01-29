@@ -7,6 +7,7 @@ public:
   // Constructor
   Map();
 
+
   // Constructor that copies existing Map
   Map(Map* const m);
 
@@ -17,22 +18,24 @@ public:
   void put(Object* key, Object* val);
 
   // Remove remove the value tied to the key from the map. Removes the key as well.
-  Object* remove(String* key);
+  Object* remove(Object* key);
 
   // Gets the value associated with the key
-  Object* get(String* key);
+  Object* get(Object* key);
 
   // Clears all the keys and values from the map
   void clear();
 
   // Is the key in the map?
-  bool containsKey(String* key);
+  bool containsKey(Object* key);
 
   // Get the number of keys in the map
   size_t size();
 
-  // Is this map eual to the Object?
+  // Is this map equal to the Object?
   bool equals(Object* o);
 
   // Get the hash of the map object
   size_t hash();
+  
+};
