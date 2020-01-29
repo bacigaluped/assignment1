@@ -1,8 +1,10 @@
+#pragma once
+
 #include "map.h"
 #include "string.h"
-#include "stdlib.h"
 #include "object.h"
-#pragma once
+#include <cstdlib>
+#include <cassert>
 
 void testPutGet() {
   String* key = new String("key");
