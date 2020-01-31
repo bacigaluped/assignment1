@@ -26,7 +26,8 @@ void testPutGet() {
 
   m->put(new String("key"), new String("new val"));
   assert(m->size() == 2);
-  assert(m->get(key)->equals(new String("new val")));
+  String* new_string = new String("new val");
+  assert(new_string->equals(m->get(key)));
 }
 
 void testRemove() {
