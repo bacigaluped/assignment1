@@ -7,10 +7,6 @@ public:
   // Constructor
   Map();
 
-
-  // Constructor that copies existing Map
-  Map(Map* const m);
-
   // Destructor
   ~Map();
 
@@ -37,5 +33,5 @@ public:
 
   // Get the hash of the map object
   size_t hash();
-  
+
 };
