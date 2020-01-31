@@ -1,6 +1,4 @@
 //lang::CwC
-#pragma once
-
 #include "object.h"
 #include <cstdlib>
 #include <cstring>
